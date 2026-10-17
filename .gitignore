@@ -12,4 +12,3 @@ npm-debug.log*
 .data/
 scripts/renders/__pycache__/
 scripts/renders/out/
-aurelia-grove-static.zip
