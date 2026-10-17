@@ -3,6 +3,8 @@ import { cityPages } from "@/config/areas";
 import { projects } from "@/config/projects";
 import { siteUrl } from "@/config/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const routes: [string, number][] = [

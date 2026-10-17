@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run lint && npm run build",
     "qa": "node scripts/qa/smoke.mjs",
-    "qa:flows": "node scripts/qa/flows.mjs"
+    "qa:flows": "node scripts/qa/flows.mjs",
+    "export": "bash scripts/export-static.sh"
   },
   "engines": {
     "node": ">=20.9.0"

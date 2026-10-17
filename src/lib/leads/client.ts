@@ -49,7 +49,10 @@ export async function submitLead(
   };
 
   let result: LeadResponse;
-  try {
+  if (process.env.NEXT_PUBLIC_STATIC_EXPORT === "true") {
+    // Static HTML build: there is no server, so the (already client-validated) lead stays in this browser.
+    result = { ok: true, leadId: crypto.randomUUID(), demo: true, delivered: false };
+  } else try {
     const res = await fetch("/api/leads", {
       method: "POST",
       headers: { "content-type": "application/json" },
