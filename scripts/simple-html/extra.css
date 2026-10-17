@@ -1,0 +1,14 @@
+/* ── Plain-HTML build: states toggled by site.js instead of React ── */
+.site-header.is-solid {
+  background-color: rgb(247 245 240 / 0.92);
+  color: var(--color-charcoal);
+  box-shadow: 0 1px 0 var(--color-line);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.site-header.is-solid .logo-word,
+.site-header.is-solid svg { color: var(--color-forest); }
+.site-header.is-solid .logo-sub { color: var(--color-stone); }
+.site-header.is-solid .header-cta { background: var(--color-forest); color: var(--color-ivory); }
+.site-header.is-solid .header-cta:hover { background: var(--color-forest-deep); }
+.ag-hidden { display: none !important; }

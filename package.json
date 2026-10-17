@@ -12,7 +12,8 @@
     "check": "npm run typecheck && npm run lint && npm run build",
     "qa": "node scripts/qa/smoke.mjs",
     "qa:flows": "node scripts/qa/flows.mjs",
-    "export": "bash scripts/export-static.sh"
+    "export": "bash scripts/export-static.sh",
+    "build:html": "bash scripts/export-static.sh && python3 scripts/simple-html/build.py"
   },
   "engines": {
     "node": ">=20.9.0"

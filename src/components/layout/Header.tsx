@@ -55,7 +55,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-[background-color,box-shadow,color] duration-500 ${
+      className={`site-header sticky top-0 z-40 transition-[background-color,box-shadow,color] duration-500 ${
         solid ? "bg-ivory/92 text-charcoal shadow-[0_1px_0_var(--color-line)] backdrop-blur-md" : "on-dark bg-transparent text-ivory"
       }`}
     >
@@ -122,7 +122,7 @@ export function Header() {
 
         <div className="hidden items-center gap-6 lg:flex">
           <PhoneLink location="header" className="text-[0.85rem] font-semibold tracking-wide opacity-90 hover:opacity-100" />
-          <PrimaryCta location="header" variant={solid ? "primary" : "light"} arrow={false} className="min-h-11 px-5" />
+          <PrimaryCta location="header" variant={solid ? "primary" : "light"} arrow={false} className="header-cta min-h-11 px-5" />
         </div>
 
         <button

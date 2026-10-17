@@ -8,6 +8,12 @@ It is a demonstration of editorial design, UX, CRO and production-grade front-en
 > The site contains no testimonials, ratings, awards, certifications, team members or license claims. Home designs are
 > concept designs illustrated with **original procedural renderings** (see `scripts/renders/`), not photos of built homes.
 
+## Just want to look at it? (no installation)
+
+Download **`aurelia-grove-site.zip`**, unzip it and double-click **`index.html`**. The `site/` folder is the same
+plain-HTML version: flat `.html` files, one `style.css`, one `site.js`, images and fonts — it works straight from disk,
+including the planner and forms (submissions are saved only in your browser). Rebuild it with `npm run build:html`.
+
 ## Quick start
 
 ```bash
