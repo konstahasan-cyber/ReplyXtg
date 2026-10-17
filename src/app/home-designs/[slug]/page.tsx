@@ -58,14 +58,16 @@ export default async function ProjectPage({ params }: Props) {
       />
 
       <section className="border-b border-line bg-ivory">
-        <dl className="container-x grid grid-cols-2 gap-px bg-line md:grid-cols-5">
-          {specs.map(([k, v]) => (
-            <div key={k} className="bg-ivory py-7 md:px-6 md:first:pl-0">
-              <dt className="eyebrow text-stone">{k}</dt>
-              <dd className="mt-2 font-serif text-2xl text-forest md:text-[1.7rem]">{v}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="container-x">
+          <dl className="grid grid-cols-2 gap-px bg-line md:grid-cols-5">
+            {specs.map(([k, v]) => (
+              <div key={k} className="bg-ivory py-7 pr-4 max-md:even:pl-5 md:px-6 md:first:pl-0">
+                <dt className="eyebrow text-stone">{k}</dt>
+                <dd className="mt-2 font-serif text-2xl text-forest md:text-[1.7rem]">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
       <section className="section-y bg-ivory">
