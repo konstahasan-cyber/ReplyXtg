@@ -96,6 +96,7 @@ function Planner() {
   const [serverError, setServerError] = useState<string | null>(null);
   const [stepError, setStepError] = useState<string | null>(null);
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const [returnToContact, setReturnToContact] = useState(false);
   const startedAt = useRef<number | undefined>(init.startedAt);
   const started = useRef(Boolean(init.startedAt));
   const pointerSelect = useRef(false);
@@ -190,12 +191,11 @@ function Planner() {
       return;
     }
     track("planner_step_complete", { step: step + 1, step_name: cs.name, value });
-    // Skip ahead to contact if the visitor came back to edit a single answer.
+    // Skip ahead to contact if the visitor came back from the review to edit a single answer.
     const allAnswered = choiceSteps.every((s) => (s.key === key ? value : answers[s.key]));
-    setStep((s) => (allAnswered && editing.current ? TOTAL - 1 : s + 1));
-    editing.current = false;
+    setStep(allAnswered && returnToContact ? TOTAL - 1 : step + 1);
+    setReturnToContact(false);
   };
-  const editing = useRef(false);
 
   const onSubmit = async (contact: PlannerContact) => {
     setServerError(null);
@@ -260,7 +260,7 @@ function Planner() {
                         type="button"
                         disabled={!canJump}
                         onClick={() => {
-                          editing.current = i < step;
+                          setReturnToContact(step === TOTAL - 1 && i < step);
                           goTo(i);
                         }}
                         aria-current={current ? "step" : undefined}
@@ -343,7 +343,13 @@ function Planner() {
               </h1>
               <p className="mt-4 text-lede text-stone">We&apos;ll use this only to follow up about your home. No newsletters unless you ask.</p>
 
-              <AnswerReview answers={answers} onEdit={(i) => ((editing.current = true), goTo(i))} />
+              <AnswerReview
+                answers={answers}
+                onEdit={(i) => {
+                  setReturnToContact(true);
+                  goTo(i);
+                }}
+              />
 
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <TextField label="Name" autoComplete="name" error={formState.errors.name?.message} {...register("name")} />
