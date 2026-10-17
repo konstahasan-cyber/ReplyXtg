@@ -94,17 +94,18 @@ export function FeaturedProjects() {
           </div>
         </div>
         <div className="mt-16 grid gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-12">
-          <div className="md:col-span-2 lg:col-span-7">
+          <div className="space-y-16 md:col-span-2 lg:col-span-7 lg:space-y-24">
             <ProjectCard project={first} index={0} size="large" />
+            <div className="hidden lg:ml-auto lg:block lg:w-[72%]">
+              <ProjectCard project={rest[1]} index={2} />
+            </div>
           </div>
-          <div className="lg:col-span-5 lg:pt-32">
+          <div className="flex flex-col gap-16 lg:col-span-5 lg:pt-40">
             <ProjectCard project={rest[0]} index={1} />
-          </div>
-          <div className="lg:col-span-5 lg:col-start-3 lg:-mt-24">
-            <ProjectCard project={rest[1]} index={2} />
-          </div>
-          <div className="flex items-end lg:col-span-4 lg:col-start-9">
-            <p data-reveal className="max-w-sm border-l-2 border-terracotta pl-5 text-sm leading-relaxed text-stone">
+            <div className="lg:hidden">
+              <ProjectCard project={rest[1]} index={2} />
+            </div>
+            <p data-reveal className="max-w-sm border-l-2 border-terracotta pl-5 text-sm leading-relaxed text-stone lg:mt-auto lg:mb-24">
               All homes shown are <strong className="font-semibold text-charcoal">concept designs</strong> illustrated with
               original renderings. They are not completed projects.
             </p>

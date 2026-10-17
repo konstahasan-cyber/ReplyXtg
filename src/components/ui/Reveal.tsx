@@ -13,7 +13,8 @@ export function RevealObserver() {
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) {
+          // Also reveal anything already scrolled past (e.g. after jumping to an anchor).
+          if (e.isIntersecting || e.boundingClientRect.top < 0) {
             e.target.classList.add("is-visible");
             io.unobserve(e.target);
           }

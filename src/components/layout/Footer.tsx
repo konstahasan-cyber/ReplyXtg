@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="on-dark bg-charcoal pb-28 text-ivory md:pb-0">
       <div className="container-x grid gap-14 pb-14 pt-20 lg:grid-cols-12 lg:gap-10 lg:pt-24">
         <div className="lg:col-span-4">
-          <Link href="/" aria-label={`${company.name} — home`}>
+          <Link href="/">
             <Logo tone="light" />
           </Link>
           <p className="mt-6 max-w-sm font-serif text-2xl leading-snug text-ivory/90">{company.promise}</p>

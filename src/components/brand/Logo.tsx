@@ -32,13 +32,13 @@ export function Logo({ tone = "dark", className = "" }: { tone?: "dark" | "light
   return (
     <span className={`inline-flex items-center gap-3 ${color} ${className}`}>
       <LogoMark />
-      <span className="flex flex-col leading-none">
+      <span className="flex flex-col leading-none" aria-hidden="true">
         <span className="font-serif text-[1.45rem] font-medium tracking-[0.06em]">AURELIA GROVE</span>
         <span className={`mt-1 text-[0.58rem] font-semibold tracking-[0.42em] ${tone === "light" ? "text-ivory/70" : "text-stone"}`}>
           CUSTOM HOMES
         </span>
       </span>
-      <span className="sr-only">{company.name}</span>
+      <span className="sr-only">{company.name}, home</span>
     </span>
   );
 }

@@ -56,7 +56,11 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const variants = await getVariants();
   return (
-    <html lang="en-US" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en-US" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Opt into reveal animations before first paint (content stays visible without JS). */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <ExperimentProvider variants={variants}>
           <DemoBar />

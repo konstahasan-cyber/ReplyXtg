@@ -66,7 +66,7 @@ export function Header() {
         Skip to content
       </a>
       <div className="container-x flex h-20 items-center justify-between gap-6">
-        <Link href="/" aria-label={`${company.name} — home`} className="shrink-0">
+        <Link href="/" className="shrink-0">
           <Logo tone={tone} />
         </Link>
 
@@ -81,7 +81,7 @@ export function Header() {
                     aria-controls="services-menu"
                     onClick={() => setServicesOpen((v) => !v)}
                     onMouseEnter={() => setServicesOpen(true)}
-                    className={`flex items-center gap-1.5 py-3 ${isActive("/custom-home-building") || isActive("/design-build") ? "opacity-100" : "opacity-85 hover:opacity-100"}`}
+                    className={`flex items-center gap-1.5 py-3 uppercase tracking-[0.12em] ${isActive("/custom-home-building") || isActive("/design-build") ? "opacity-100" : "opacity-85 hover:opacity-100"}`}
                   >
                     {item.label}
                     <svg viewBox="0 0 10 6" className={`h-1.5 w-2.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} aria-hidden="true">
